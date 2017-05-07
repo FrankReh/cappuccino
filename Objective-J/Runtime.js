@@ -64,7 +64,6 @@ GLOBAL(objj_class) = function(displayName)
     this.version        = 0;
 
     this.super_class    = NULL;
-    this.sub_classes    = [];
 
     this.name           = NULL;
     this.info           = 0;
@@ -322,7 +321,7 @@ GLOBAL(class_addProtocol) = function(/*Class*/ aClass, /*Protocol*/ aProtocol)
         return;
     }
 
-    (aClass.protocol_list || (aClass.protocol_list == [])).push(aProtocol);
+    (aClass.protocol_list || (aClass.protocol_list = [])).push(aProtocol);
 
     return true;
 }
